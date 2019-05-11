@@ -1,6 +1,6 @@
 # ResPy
 
-![cover_img](Images/readme-img.jpg)
+![cover_img]("Images/readme-img.jpg")
 
 ### 1.1 Product Overview
 The Respiratory Diseases: Smoking vs. Air Pollution in the United States project will be an inexpensive and easily accessible way to show the data of air pollution and data of smoking/lung cancer in the United States. The application will be designed to work on html. The application will also make use of the leaflet database to show areas that have the largest amount of air pollution. This will allow for the correlation to be created on whether or not areas with larger air pollution have a population with more lung cancer. 

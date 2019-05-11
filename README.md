@@ -1,4 +1,6 @@
-# ResPy - Respiratory Diseases: Smoking vs. Air Pollution in the United States
+# ResPy 
+
+## Respiratory Diseases: Smoking vs. Air Pollution in the United States
 
 ![cover_img](Images/cigarette.jpg)
 

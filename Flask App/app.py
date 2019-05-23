@@ -11,9 +11,13 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/maps')
-def maps():
-    return render_template('maps.html')
+@app.route('/smoking')
+def smoking():
+    return render_template('smokingmaps.html')
+
+@app.route('/aqi')
+def aqi():
+    return render_template('airqualitymaps.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

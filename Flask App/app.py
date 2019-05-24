@@ -12,15 +12,13 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/smoking')
-def smoking():
+@app.route('/maps')
+def maps():
     return render_template('smokingmaps.html')
 
-@app.route('/data')
-def data():
-    data_df = pd.read_json('data/tobacco_use_by_state.json', orient='columns')
-    jsonData = data_df.to_json(orient='columns')
-    return jsonData
+@app.route('/chart')
+def bar():
+    return render_template('smokingchart.html')
 
 @app.route('/aqi')
 def aqi():

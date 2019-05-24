@@ -1,4 +1,4 @@
-﻿Year,State,Smoke everyday,Smoke some days,Former smoker,Never smoked,Latitude,Longitude
+﻿year,state,smokesEveryday,smokesSomedays,formerSmoker,neverSmoked,latitude,longitude
 2011,Arizona,13.1,6.2,24.9,55.9,"
 34.86596999961597",-111.76381
 2011,California,8.6,5,23.9,62.5,"

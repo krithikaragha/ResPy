@@ -1,33 +1,30 @@
 // Read the data from CSV
-d3.csv('data/tobacco_use_by_state.csv', function(rows) {
-    var everyday = rows.filter(r => r.smokesEveryday);
-    var somedays = rows.filter(r => r.smokesSomedays);
-    var former = rows.filter(r => r.formerSmoker);
-    var never = rows.filter(r => r.neverSmoked);
+d3.csv('https://raw.githubusercontent.com/krithikaragha/ResPy/master/Flask%20App/static/data/tobacco_use_by_state.csv', function(data) {
 
-    console.log(everyday);
-    console.log(somedays);
-    console.log(former);
-    console.log(never);
+    var chartData = []; // Array containing all the traces
+    function makeTrace(d) {    // Function to make all 50 traces
+        return {
+            x: ["Smokes Everyday", "Smokes Somedays", "Former Smoker", "Never Smoked"],
+            y: [d.smokesEveryday, d.smokesSomedays, d.formerSmoker, d.neverSmoked],
+            name: d.state,
+            type: 'bar'
+        }   
+    }
+
+    // Loop through all rows of the data
+    for(var i = 0; i < data.length; i++) {
+
+        // Call makeTrace to create a trace with index i
+        chartData.push(makeTrace(data[i]));
+
+        // Define a chart layout
+        var layout = {
+            barmode: 'stack',
+            width: 1200,
+            height: 800
+        };
+
+        // Plot the stacked bar chart 
+        Plotly.newPlot('bar', chartData, layout);
+    }
 });
-/*
-var trace1 = {
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [20, 14, 23],
-    name: 'SF Zoo',
-    type: 'bar'
-  };
-  
-  var trace2 = {
-    x: ['giraffes', 'orangutans', 'monkeys'],
-    y: [12, 18, 29],
-    name: 'LA Zoo',
-    type: 'bar'
-  };
-  
-  var data = [trace1, trace2];
-  
-  var layout = {barmode: 'stack'};
-  
-  Plotly.newPlot('myDiv', data, layout);
-*/

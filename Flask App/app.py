@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 from flask import Flask, request, render_template, flash, redirect, url_for, session, logging
 
 app = Flask(__name__)
@@ -14,6 +15,12 @@ def about():
 @app.route('/smoking')
 def smoking():
     return render_template('smokingmaps.html')
+
+@app.route('/data')
+def data():
+    data_df = pd.read_json('data/tobacco_use_by_state.json', orient='columns')
+    jsonData = data_df.to_json(orient='columns')
+    return jsonData
 
 @app.route('/aqi')
 def aqi():

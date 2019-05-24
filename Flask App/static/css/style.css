@@ -46,16 +46,16 @@ html, body {
     text-decoration: none;
 }
 
-..button: hover {
-    color: #ffff:
+.button:hover {
+    color: #ffff;
     border: solid #fff 3px;
 }
 
 p {
     font-size: 160%;
     line-height: 210%;
-    text-align: justify:
-    margin:3%;
+    text-align: justify;
+    margin: 3%;
     font-family: sans-serif;
 }
 

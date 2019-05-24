@@ -18,3 +18,27 @@ L.tileLayer("https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=_TOKE
     token: TOKEN
 }).addTo(myMap);
 
+// Create a legend to display information about our map
+var info = L.control({
+    position: "bottomright"
+});
+  
+// When the layer control is added, insert a div with the class of "legend"
+info.onAdd = function() {
+    var div = L.DomUtil.create("div", "legend");
+    return div;
+}
+
+// Add the info legend to the map
+info.addTo(map);
+
+// Function to display the Widget
+(function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=  
+    c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];  
+    L.async=1;L.src='//feed.aqicn.org/feed/'+(c[n].city)+'/'+(c[n].lang||'')+'/feed.v1.js?n='+n+k;  
+    e.parentNode.insertBefore(L,e);  };  })(  window,document,'script','_aqiFeed');    
+
+_aqiFeed({
+    container: '.legend'
+})
+

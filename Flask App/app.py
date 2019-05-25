@@ -4,8 +4,12 @@ from flask import Flask, request, render_template, flash, redirect, url_for, ses
 
 app = Flask(__name__)
 
-@app.route('/overview')
+@app.route('/')
 def index():
+    return render_template('index.html')
+    
+@app.route('/overview')
+def overview():
     return render_template('overview.html')
 
 @app.route('/about')

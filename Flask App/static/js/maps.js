@@ -1,25 +1,25 @@
 // Map for Everyday Smokers
 var everydaySmokerMap = L.map("everyday", {
   center: [39.8283, -98.5795], 
-  zoom: 4
+  zoom: 3
 });
 
 // Map for Someday Smokers
 var somedaySmokerMap = L.map("someday", {
   center: [39.8283, -98.5795], 
-  zoom: 4
+  zoom: 3
 });
 
 // Map for Former Smokers
 var formerSmokerMap = L.map("former", {
   center: [39.8283, -98.5795], 
-  zoom: 4
+  zoom: 3
 });
 
 // Map for Non-Smokers
 var neverSmokedMap = L.map("never", {
   center: [39.8283, -98.5795], 
-  zoom: 4
+  zoom: 3
 });
 
 // Create base tile layers using Mapbox API
@@ -58,7 +58,7 @@ formerBaseMap.addTo(formerSmokerMap);
 neverBaseMap.addTo(neverSmokedMap);
 
 // Create a choropleth layer for everyday smokers
-smokesEveryday = L.choropleth(data, {
+var smokesEveryday = L.choropleth(data, {
 
   // Define what  property in the features to use
   valueProperty: "EVERYDAY",
@@ -67,7 +67,7 @@ smokesEveryday = L.choropleth(data, {
   scale: ["#ffffb2", "#b10026"],
 
   // Number of breaks in step range
-  steps: 10,
+  steps: 7,
 
   // q for quartile, e for equidistant, k for k-means
   mode: "q",
@@ -83,9 +83,31 @@ smokesEveryday = L.choropleth(data, {
     layer.bindPopup("<h5>" + feature.properties.NAME + ": " + feature.properties.EVERYDAY + "%</h5>");
   }
 }).addTo(everydaySmokerMap);
-  
+
+// Add legend to the everyday smokers map
+var everydayLegend = L.control({ position: 'bottomleft' })
+everydayLegend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend')
+  var limits = smokesEveryday.options.limits
+  var colors = smokesEveryday.options.colors
+  var labels = []
+
+  // Add min & max
+  div.innerHTML = "<div><h6><center>Everyday Smokers</center></div></h6>" + '<div \
+    class="labels"><div class="min">' + limits[0] + '</div> \
+    <div class="max">' + limits[limits.length - 1] + '</div></div>'
+
+  limits.forEach(function (limit, index) {
+    labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+  })
+
+  div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+  return div
+}
+everydayLegend.addTo(everydaySmokerMap)
+
 // Create a choropleth layer for somedays smokers
-smokesSomedays = L.choropleth(data, {
+var smokesSomedays = L.choropleth(data, {
 
   // Define what  property in the features to use
   valueProperty: "SOMEDAYS",
@@ -94,7 +116,7 @@ smokesSomedays = L.choropleth(data, {
   scale: ["#fffacd", "#ffd700"],
 
   // Number of breaks in step range
-  steps: 10,
+  steps: 7,
 
   // q for quartile, e for equidistant, k for k-means
   mode: "q",
@@ -111,8 +133,30 @@ smokesSomedays = L.choropleth(data, {
   }
 }).addTo(somedaySmokerMap); 
 
+// Add legend to the somedays smokers map
+var somedayLegend = L.control({ position: 'bottomleft' })
+somedayLegend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend')
+  var limits = smokesSomedays.options.limits
+  var colors =  smokesSomedays.options.colors
+  var labels = []
+
+  // Add min & max
+  div.innerHTML = "<div><h6><center>Someday Smokers</center></div></h6>" + '<div \
+    class="labels"><div class="min">' + limits[0] + '</div> \
+    <div class="max">' + limits[limits.length - 1] + '</div></div>'
+
+  limits.forEach(function (limit, index) {
+    labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+  })
+
+  div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+  return div
+}
+somedayLegend.addTo(somedaySmokerMap)
+
 // Create a choropleth layer for former smokers
-formerSmoker = L.choropleth(data, {
+var formerSmoker = L.choropleth(data, {
 
   // Define what  property in the features to use
   valueProperty: "FORMER",
@@ -121,7 +165,7 @@ formerSmoker = L.choropleth(data, {
   scale: ["#87cefa", "#5f9ea0"],
 
   // Number of breaks in step range
-  steps: 10,
+  steps: 7,
 
   // q for quartile, e for equidistant, k for k-means
   mode: "q",
@@ -138,8 +182,30 @@ formerSmoker = L.choropleth(data, {
   }
 }).addTo(formerSmokerMap);
 
+// Add legend to the former smokers map
+var formerLegend = L.control({ position: 'bottomleft' })
+formerLegend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend')
+  var limits = formerSmoker.options.limits
+  var colors =  formerSmoker.options.colors
+  var labels = []
+
+  // Add min & max
+  div.innerHTML = "<div><h6><center>Former Smokers</center></div></h6>" + '<div \
+    class="labels"><div class="min">' + limits[0] + '</div> \
+    <div class="max">' + limits[limits.length - 1] + '</div></div>'
+
+  limits.forEach(function (limit, index) {
+    labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+  })
+
+  div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+  return div
+}
+formerLegend.addTo(formerSmokerMap)
+
 // Create a choropleth layer for non-smokers
-neverSmoked = L.choropleth(data, {
+var neverSmoked = L.choropleth(data, {
 
   // Define what  property in the features to use
   valueProperty: "NEVER",
@@ -148,7 +214,7 @@ neverSmoked = L.choropleth(data, {
   scale: ["#90ee90", "#2e8b57"],
 
   // Number of breaks in step range
-  steps: 10,
+  steps: 7,
 
   // q for quartile, e for equidistant, k for k-means
   mode: "q",
@@ -164,3 +230,25 @@ neverSmoked = L.choropleth(data, {
     layer.bindPopup("<h5>" + feature.properties.NAME + ": " + feature.properties.NEVER + "%</h5>");
   }
 }).addTo(neverSmokedMap);
+
+// Add legend to the non-smokers map
+var neverLegend = L.control({ position: 'bottomleft' })
+neverLegend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend')
+  var limits = neverSmoked.options.limits
+  var colors =  neverSmoked.options.colors
+  var labels = []
+
+  // Add min & max
+  div.innerHTML = "<div><h6><center>Non-Smokers</center></div></h6>" + '<div \
+    class="labels"><div class="min">' + limits[0] + '</div> \
+    <div class="max">' + limits[limits.length - 1] + '</div></div>'
+
+  limits.forEach(function (limit, index) {
+    labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+  })
+
+  div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+  return div
+}
+neverLegend.addTo(neverSmokedMap)

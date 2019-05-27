@@ -53,7 +53,7 @@ d3.csv('https://raw.githubusercontent.com/krithikaragha/ResPy/master/Flask%20App
         },
         yaxis: {
             title: {
-                text: "Avg. Death Rates %(per 100,000) "
+                text: "Avg. Death Rates (per 100,000) "
             }
         },
         height: 800,

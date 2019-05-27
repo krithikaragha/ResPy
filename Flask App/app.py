@@ -24,6 +24,10 @@ def maps():
 def bar():
     return render_template('smokingchart.html')
 
+@app.route('/bubble')
+def bubble():
+    return render_template('ncds.html')
+
 @app.route('/aqi')
 def aqi():
     return render_template('airqualitymaps.html')

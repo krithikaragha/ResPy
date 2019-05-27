@@ -21,16 +21,16 @@ def maps():
     return render_template('smokingmaps.html')
 
 @app.route('/chart')
-def bar():
+def stack():
     return render_template('smokingchart.html')
 
-@app.route('/bubble')
-def bubble():
+@app.route('/bar')
+def bar():
     return render_template('ncds.html')
 
 @app.route('/aqi')
 def aqi():
-    return render_template('airqualitymaps.html')
+    return render_template('aqi.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

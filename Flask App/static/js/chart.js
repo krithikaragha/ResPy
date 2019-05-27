@@ -16,15 +16,16 @@ d3.csv('https://raw.githubusercontent.com/krithikaragha/ResPy/master/Flask%20App
 
         // Call makeTrace to create a trace with index i
         chartData.push(makeTrace(data[i]));
-
-        // Define a chart layout
-        var layout = {
-            barmode: 'stack',
-            width: 1200,
-            height: 800
-        };
-
-        // Plot the stacked bar chart 
-        Plotly.newPlot('bar', chartData, layout);
     }
+    
+    // Define a chart layout
+    var layout = {
+        barmode: 'stack',
+        width: 1200,
+        height: 800
+    };
+
+    // Plot the stacked bar chart 
+    Plotly.newPlot('bar', chartData, layout);
+    
 });

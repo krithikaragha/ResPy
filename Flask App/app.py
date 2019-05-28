@@ -10,7 +10,7 @@ def index():
     
 @app.route('/overview')
 def overview():
-    return render_template('overview.html')
+    return render_template('dashboard.html')
 
 @app.route('/about')
 def about():

@@ -23,7 +23,7 @@ The Respiratory Diseases: Smoking vs. Air Pollution in the United States project
   * JavaScript, Plotly.js, Leaflet.js
   * HTML/CSS
  
-### 1.6 Project/Presentation Roles:
+### 1.5 Project/Presentation Roles:
   1. Wilson/Krithika - Leaflet/Heatmap, Plotly
   2. Raphael - Web Framework
   3. Wissemeddine - Data Wrangling

@@ -1,37 +1,71 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<br></br>
-<br></br>
-
-<h1 class="text-center font-weight-light text-black">Overview</h1>
-
-<br></br>
-
-<div class="row" height="60%" width="100%" >
-    <div class="column">
-      <div class="card">
-      <img src="https://4.bp.blogspot.com/-xtPqDXf6jWI/TuokHlvRtSI/AAAAAAAAAVY/iN5VB-1ZG9o/s1600/ChronicHeartFailure.jpeg" alt="air" width="200" height="150" class="button" href="/maps"> 
-        <h3 align="center">Tobacco</h3>
-        <p align="center">One hundred million deaths were caused by tobacco in the 20th century, and it is estimated that there will be up to one billion deaths attributed to tobacco use in the 21st century. Chronic obstructive pulmonary disease (COPD) is rapidly becoming a global public health crisis with smoking being recognized as its most important causative factor.</p>
-    </div>
-    </div>
-    <div class="column">
-        <div class="card">
-        <img src="https://lungdiseasenews.com/wp-content/uploads/2016/12/shutterstock_267107045.jpg" alt="heart" width="200" height="150" class="button" href="/bar">
-            <h3 align="center">Cardiovascular Disease</h3>
-            <p align="center">The data provided in the website shows a direct correlation between smoking and cardiovascular related deaths. As shown in the maps, the state with the heaviest percentage of smoking had the highest percentage of cardiovascular related deaths.</p>
-          </div>
-          </div>
-    <div class="column">
-        <div class="card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_jKf1JZ5W9c6V7rEhobSXIhmUlxkjk46Fwnc5-LL31hrGdv63" alt="air" width="200" height="150" class="button" href="/aqi">
-                  <h3 align="center">Air Quality</h3>
-                  <p align="center">Whether you live in a city where smog forecasts are routine or in a less populated place, tiny pollution particles in the air can lead to big problems for your heart.
-
-                        Pollution can come from traffic, factories, power generation, wildfires or even cooking with a wood stove. One of the most common indoor sources is smoking — a danger to the person lighting up and to those nearby.</p>
-              </div>
-              </div>
+<div class="row">
+  <div class="col-md-12 jumbotron text-center">
+    <br><br><br>
+    <h1>Product Overview</h1>
   </div>
-
+</div>
+<div class="row" height="60%" width="100%" >
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Maps
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Tobacco Usage</h5>
+        <p class="card-text">
+            One hundred million deaths were caused by tobacco in the 20th century, 
+            and it is estimated that there will be up to one billion deaths attributed to tobacco 
+            use in the 21st century.<br><br>
+            To visualize tobacco use, we created four separate choropleth maps that show percentage of everyday 
+            smokers, people who smoke somedays, former and non-smokers. We also created a stacked bar chart
+            to view all the data at once.
+        </p>
+        <center>
+          <a href="/maps" class="btn btn-primary">View Maps</a>
+          <a href="/chart" class="btn btn-primary">View Chart</a>
+        </center>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Charts
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Cardiovascular Disease</h5>
+        <p class="card-text">
+            About 610,000 people die of heart disease in the United States every year – that's 1 in 
+            every 4 deaths, for both men and women. High blood pressure, high cholestrol and smoking are known to be the key risk 
+            factors for heart disease.<br><br>
+            To visualize mortality rates caused by cardiovascular disease, we created a simple bar chart that shows
+            the average death rate for every state calculated per 100,000 population.
+        </p>
+        <center><a href="/bar" class="btn btn-primary">View Chart</a></center>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Tiles
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Air Quality</h5>
+        <p class="card-text">
+            Whether you live in a city where smog forecasts are routine or in a less populated 
+            place, tiny pollution particles in the air can lead to big problems for your health and quality of life.
+            Which is why, tracking air quality becomes very important for obvious reasons.<br><br>
+            To visualize air quality data, we plotted a map to show a tile layer containing markers 
+            indicating PM2.5 based AQI - the lower the number, the better the air quality.
+        </p>
+        <center><a href="/aqi" class="btn btn-primary">View Map</a></center>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
 {% endblock %}
